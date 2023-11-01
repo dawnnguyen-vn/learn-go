@@ -1,14 +1,10 @@
-FROM golang:1.20
+FROM --platform=linux/amd64 golang:1.21.3-alpine3.18
 
-RUN adduser --disabled-login myuser
+RUN adduser -D go
 
-ENV SHELL /bin/bash
+USER go
 
-USER myuser
+WORKDIR /home/go/app
 
-WORKDIR /home/myuser/app
-
-# ENV PATH="/home/myuser/.local/bin:${PATH}"
-
-ENTRYPOINT ["tail", "-f", "/dev/null"]
+COPY . .
 

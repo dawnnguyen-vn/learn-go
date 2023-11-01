@@ -1,4 +1,4 @@
-version: '3.7'
+version: '3.9'
 
 services:
   go:
@@ -6,7 +6,7 @@ services:
       context: .
       dockerfile: ./Dockerfile
     volumes:
-      - ./:/home/myuser/app
+      - ./:/home/go/app
     ports:
       - 8000:8000
-    # command: sh -c "pip install -r requirements.txt && python manage.py runserver"
+    command: sh -c "go run learn-go/server.go"
