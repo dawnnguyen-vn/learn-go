@@ -9,4 +9,4 @@ services:
       - ./:/home/go/app
     ports:
       - 8000:8000
-    command: sh -c "go run learn-go/server.go"
+    command: sh -c "tail -f /dev/null"
