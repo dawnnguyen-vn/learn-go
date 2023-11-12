@@ -1,4 +1,4 @@
-FROM --platform=linux/amd64 golang:1.21.3-alpine3.18
+FROM --platform=linux/amd64 golang:1.21.4-alpine3.18
 
 RUN adduser -D go
 

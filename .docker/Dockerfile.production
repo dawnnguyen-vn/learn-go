@@ -1,5 +1,5 @@
 # Build state
-FROM --platform=linux/amd64 golang:1.21.3-alpine3.18 AS build
+FROM --platform=linux/amd64 golang:1.21.4-alpine3.18 AS build
 
 WORKDIR /app
 
@@ -25,4 +25,4 @@ USER app:app
 
 EXPOSE 8080
 
-CMD ["./main"]
+ENTRYPOINT ["./main"]
