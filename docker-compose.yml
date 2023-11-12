@@ -4,9 +4,9 @@ services:
   go:
     build:
       context: .
-      dockerfile: ./Dockerfile
+      dockerfile: ./.docker/Dockerfile
     volumes:
       - ./:/home/go/app
     ports:
-      - 8000:8000
-    command: sh -c "tail -f /dev/null"
+      - 8080:8080
+    command: sh -c "air"
