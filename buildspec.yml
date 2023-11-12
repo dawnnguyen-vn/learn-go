@@ -4,13 +4,14 @@ phases:
   pre_build:
     commands:
       - echo -------------------------------------------------------------
+      - AWS_ACCOUNT_ID=642272742271
       - REPOSITORY_URI=642272742271.dkr.ecr.us-east-1.amazonaws.com/learn-go
       - COMMIT_HASH=$(echo ${CODEBUILD_RESOLVED_SOURCE_VERSION} | cut -c 1-7)
       - IMAGE_TAG=${COMMIT_HASH}
       - IMAGE_REPO_NAME=learn-go
       - echo -------------------------------------------------------------
       - echo Logging in to Amazon ECR...
-      - aws ecr get-login-password --region $AWS_DEFAULT_REGION | docker login --username AWS --password-stdin $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com
+      - aws ecr get-login-password --region ${AWS_DEFAULT_REGION} | docker login --username AWS --password-stdin ${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_DEFAULT_REGION}.amazonaws.com
     finally:
       - echo Finished the pre_build phase regardless of success or failure
   build:
@@ -28,3 +29,6 @@ phases:
       - docker push ${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_DEFAULT_REGION}.amazonaws.com/${IMAGE_REPO_NAME}:${IMAGE_TAG}
     finally:
       - echo Finished the post_build phase regardless of success or failure
+cache:
+  paths:
+    - /root/cache/
