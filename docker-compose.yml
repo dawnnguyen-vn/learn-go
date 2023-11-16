@@ -9,4 +9,4 @@ services:
       - ./:/home/go/app
     ports:
       - 8080:8080
-    command: sh -c "air"
+    command: sh -c "tail -f /dev/null"

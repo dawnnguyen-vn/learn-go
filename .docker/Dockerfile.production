@@ -25,4 +25,4 @@ USER app:app
 
 EXPOSE 8080
 
-ENTRYPOINT ["./main"]
+CMD ["./main"]
