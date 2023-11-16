@@ -23,7 +23,7 @@ func main() {
 	r := gin.New()
 
 	r.GET("/health", func(c *gin.Context) {
-		c.String(200, "okkk")
+		c.String(200, "okkkk")
 	})
 
 	r.GET("/", func(c *gin.Context) {
